@@ -1,33 +1,34 @@
-= Red/View Graphic Engine
+= Red/View 图形引擎
 :imagesdir: ../images
 :toc:
 :toclevels: 3
 :numbered:
 
-== Design goals 
+== 设计目标 (Design goals )
 
-The Red/View (or just View) component is a graphic system for the Red programming language. The design goals are:
+Red/View (简称 View)组件是Red编程语言的图形系统。它的设计目标是：
 
-* Data-oriented, minimal API
-* Virtual tree of objects as programming interface
-* Realtime or deferred synchronization between the virtual tree and the display system
-* Make two-way binding trivial to support
-* Ability to have different backends, across different platforms
-* Support OS, third-party and custom widget sets
-* Low performance overhead
+* 面向数据，最小化的API
+* 以虚拟对象树为编程接口 原文:Virtual tree of objects as programming interface
+* 在虚拟树和显示系统之间实时或延迟同步 原文:Realtime or deferred synchronization between the virtual tree and the display system
+* 支持更细化的双向绑定 原文:Make two-way binding trivial to support
+* 跨平台后端 Ability to have different backends, across different platforms
+* 支持操作系统、第三方和自定义的窗口部件
+* 低性能开销
 
-The virtual tree is built using face objects. Each face object maps to a graphic component on the display in a two-way binding.
+虚拟树使用 face 对象构造. 每一个 face 对象以双向绑定方式映射到显示屏上的图形组件。
 
-== Face object
+== Face对象 (Face object)
 
-Face objects are clones of `face!` template object. A field in face object is called a _facet_.
+//根据中学生编程.pdf里提到的facet称为属性.  感觉这个facet= face +type的t的合体词
+face对象是 `face!` 模板对象的克隆. 在face对象中的一个字段被称作属性( _facet_ )。
 
-List of available facets:
+可用属性(facets)的列表:
 
 [cols="1,1,1,1,2", options="header"]
 |===
 
-|Facet | Datatype | Mandatory? | Applicability | Description
+|属性 Facet | 数据类型 Datatype | 强制性 Mandatory? | 适用性 Applicability | 描述 Description
 |type| word!| yes| all| Type of graphic component (see link:view.html#_face_types[below]).
 |offset| pair!| yes| all| Offset position from parent top-left origin.
 |size| pair!| yes| all| Size of the face.
